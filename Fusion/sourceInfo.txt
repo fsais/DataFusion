@@ -1,0 +1,3 @@
+source: www.okkam.org
+reliability 0.5
+freshness 0.5

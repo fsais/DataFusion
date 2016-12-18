@@ -1,0 +1,403 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.w3.org/2002/07/owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace">
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="owl2xml" IRI="http://www.w3.org/2006/12/owl2-xml#"/>
+    <Prefix name="ontology_people2" IRI="http://www.okkam.org/ontology_people2.owl#"/>
+    <Prefix name="" IRI="http://www.w3.org/2006/12/owl2-xml#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class abbreviatedIRI="ontology_people2:Address"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="ontology_people2:Animal"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="ontology_people2:Living_being"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="ontology_people2:Location"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="ontology_people2:Person"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="ontology_people2:has_address"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="ontology_people2:age"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="ontology_people2:date_of_birth"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="ontology_people2:given_name"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="ontology_people2:house_number"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="ontology_people2:phone_numer"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="ontology_people2:postcode"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="ontology_people2:soc_sec_id"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="ontology_people2:state"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="ontology_people2:street"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="ontology_people2:suburb"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="ontology_people2:surname"/>
+    </Declaration>
+    <SubClassOf>
+        <Class abbreviatedIRI="ontology_people2:Address"/>
+        <Class abbreviatedIRI="ontology_people2:Location"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="ontology_people2:Animal"/>
+        <Class abbreviatedIRI="ontology_people2:Living_being"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="ontology_people2:Living_being"/>
+        <Class IRI="Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="ontology_people2:Location"/>
+        <Class IRI="Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="ontology_people2:Person"/>
+        <Class abbreviatedIRI="ontology_people2:Animal"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class abbreviatedIRI="ontology_people2:Address"/>
+        <Class abbreviatedIRI="ontology_people2:Person"/>
+    </DisjointClasses>
+    <FunctionalObjectProperty>
+        <ObjectProperty abbreviatedIRI="ontology_people2:has_address"/>
+    </FunctionalObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty abbreviatedIRI="ontology_people2:has_address"/>
+    </AsymmetricObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty abbreviatedIRI="ontology_people2:has_address"/>
+    </IrreflexiveObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="ontology_people2:has_address"/>
+        <Class abbreviatedIRI="ontology_people2:Person"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="ontology_people2:has_address"/>
+        <Class abbreviatedIRI="ontology_people2:Address"/>
+    </ObjectPropertyRange>
+    <FunctionalDataProperty>
+        <DataProperty abbreviatedIRI="ontology_people2:age"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty abbreviatedIRI="ontology_people2:date_of_birth"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty abbreviatedIRI="ontology_people2:given_name"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty abbreviatedIRI="ontology_people2:house_number"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty abbreviatedIRI="ontology_people2:phone_numer"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty abbreviatedIRI="ontology_people2:postcode"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty abbreviatedIRI="ontology_people2:soc_sec_id"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty abbreviatedIRI="ontology_people2:state"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty abbreviatedIRI="ontology_people2:street"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty abbreviatedIRI="ontology_people2:suburb"/>
+    </FunctionalDataProperty>
+    <FunctionalDataProperty>
+        <DataProperty abbreviatedIRI="ontology_people2:surname"/>
+    </FunctionalDataProperty>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="ontology_people2:age"/>
+        <Class abbreviatedIRI="ontology_people2:Person"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="ontology_people2:date_of_birth"/>
+        <Class abbreviatedIRI="ontology_people2:Person"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="ontology_people2:given_name"/>
+        <Class abbreviatedIRI="ontology_people2:Person"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="ontology_people2:house_number"/>
+        <Class abbreviatedIRI="ontology_people2:Address"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="ontology_people2:phone_numer"/>
+        <Class abbreviatedIRI="ontology_people2:Person"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="ontology_people2:postcode"/>
+        <Class abbreviatedIRI="ontology_people2:Address"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="ontology_people2:soc_sec_id"/>
+        <Class abbreviatedIRI="ontology_people2:Person"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="ontology_people2:state"/>
+        <Class abbreviatedIRI="ontology_people2:Address"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="ontology_people2:street"/>
+        <Class abbreviatedIRI="ontology_people2:Address"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="ontology_people2:suburb"/>
+        <Class abbreviatedIRI="ontology_people2:Address"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="ontology_people2:surname"/>
+        <Class abbreviatedIRI="ontology_people2:Person"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="ontology_people2:age"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="ontology_people2:date_of_birth"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="ontology_people2:given_name"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="ontology_people2:house_number"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="ontology_people2:phone_numer"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="ontology_people2:postcode"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="ontology_people2:soc_sec_id"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="ontology_people2:state"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="ontology_people2:street"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="ontology_people2:suburb"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="ontology_people2:surname"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DLSafeRule>
+        <Body>
+            <ObjectPropertyAtom>
+                <ObjectProperty abbreviatedIRI="ontology_people2:has_address"/>
+                <Variable IRI="urn:swrl#p1"/>
+                <Variable IRI="urn:swrl#ad1"/>
+            </ObjectPropertyAtom>
+            <ObjectPropertyAtom>
+                <ObjectProperty abbreviatedIRI="ontology_people2:has_address"/>
+                <Variable IRI="urn:swrl#p2"/>
+                <Variable IRI="urn:swrl#ad2"/>
+            </ObjectPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty abbreviatedIRI="ontology_people2:age"/>
+                <Variable IRI="urn:swrl#p1"/>
+                <Variable IRI="urn:swrl#a1"/>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty abbreviatedIRI="ontology_people2:age"/>
+                <Variable IRI="urn:swrl#p2"/>
+                <Variable IRI="urn:swrl#a2"/>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty abbreviatedIRI="ontology_people2:date_of_birth"/>
+                <Variable IRI="urn:swrl#p1"/>
+                <Variable IRI="urn:swrl#d1"/>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty abbreviatedIRI="ontology_people2:date_of_birth"/>
+                <Variable IRI="urn:swrl#p2"/>
+                <Variable IRI="urn:swrl#d2"/>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty abbreviatedIRI="ontology_people2:given_name"/>
+                <Variable IRI="urn:swrl#p1"/>
+                <Variable IRI="urn:swrl#g1"/>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty abbreviatedIRI="ontology_people2:given_name"/>
+                <Variable IRI="urn:swrl#p2"/>
+                <Variable IRI="urn:swrl#g2"/>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty abbreviatedIRI="ontology_people2:surname"/>
+                <Variable IRI="urn:swrl#p1"/>
+                <Variable IRI="urn:swrl#s1"/>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty abbreviatedIRI="ontology_people2:surname"/>
+                <Variable IRI="urn:swrl#p2"/>
+                <Variable IRI="urn:swrl#s2"/>
+            </DataPropertyAtom>
+            <SameIndividualAtom>
+                <Variable IRI="urn:swrl#a1"/>
+                <Variable IRI="urn:swrl#a2"/>
+            </SameIndividualAtom>
+            <SameIndividualAtom>
+                <Variable IRI="urn:swrl#ad1"/>
+                <Variable IRI="urn:swrl#ad2"/>
+            </SameIndividualAtom>
+            <SameIndividualAtom>
+                <Variable IRI="urn:swrl#d1"/>
+                <Variable IRI="urn:swrl#d2"/>
+            </SameIndividualAtom>
+            <SameIndividualAtom>
+                <Variable IRI="urn:swrl#g1"/>
+                <Variable IRI="urn:swrl#g2"/>
+            </SameIndividualAtom>
+            <SameIndividualAtom>
+                <Variable IRI="urn:swrl#s1"/>
+                <Variable IRI="urn:swrl#s2"/>
+            </SameIndividualAtom>
+        </Body>
+        <Head>
+            <SameIndividualAtom>
+                <Variable IRI="urn:swrl#p1"/>
+                <Variable IRI="urn:swrl#p2"/>
+            </SameIndividualAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Body>
+            <DataPropertyAtom>
+                <DataProperty abbreviatedIRI="ontology_people2:house_number"/>
+                <Variable IRI="urn:swrl#a1"/>
+                <Variable IRI="urn:swrl#h1"/>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty abbreviatedIRI="ontology_people2:house_number"/>
+                <Variable IRI="urn:swrl#a2"/>
+                <Variable IRI="urn:swrl#h2"/>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty abbreviatedIRI="ontology_people2:postcode"/>
+                <Variable IRI="urn:swrl#a1"/>
+                <Variable IRI="urn:swrl#p1"/>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty abbreviatedIRI="ontology_people2:postcode"/>
+                <Variable IRI="urn:swrl#a2"/>
+                <Variable IRI="urn:swrl#p2"/>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty abbreviatedIRI="ontology_people2:street"/>
+                <Variable IRI="urn:swrl#a1"/>
+                <Variable IRI="urn:swrl#st1"/>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty abbreviatedIRI="ontology_people2:street"/>
+                <Variable IRI="urn:swrl#a2"/>
+                <Variable IRI="urn:swrl#st2"/>
+            </DataPropertyAtom>
+            <SameIndividualAtom>
+                <Variable IRI="urn:swrl#h"/>
+                <Variable IRI="urn:swrl#h2"/>
+            </SameIndividualAtom>
+            <SameIndividualAtom>
+                <Variable IRI="urn:swrl#p1"/>
+                <Variable IRI="urn:swrl#p2"/>
+            </SameIndividualAtom>
+            <SameIndividualAtom>
+                <Variable IRI="urn:swrl#sr1"/>
+                <Variable IRI="urn:swrl#sr2"/>
+            </SameIndividualAtom>
+            <SameIndividualAtom>
+                <Variable IRI="urn:swrl#st1"/>
+                <Variable IRI="urn:swrl#st2"/>
+            </SameIndividualAtom>
+        </Body>
+        <Head>
+            <SameIndividualAtom>
+                <Variable IRI="urn:swrl#a1"/>
+                <Variable IRI="urn:swrl#a2"/>
+            </SameIndividualAtom>
+        </Head>
+    </DLSafeRule>
+    <DLSafeRule>
+        <Body>
+            <DataPropertyAtom>
+                <DataProperty abbreviatedIRI="ontology_people2:soc_sec_id"/>
+                <Variable IRI="urn:swrl#p1"/>
+                <Variable IRI="urn:swrl#i1"/>
+            </DataPropertyAtom>
+            <DataPropertyAtom>
+                <DataProperty abbreviatedIRI="ontology_people2:soc_sec_id"/>
+                <Variable IRI="urn:swrl#p2"/>
+                <Variable IRI="urn:swrl#i2"/>
+            </DataPropertyAtom>
+            <SameIndividualAtom>
+                <Variable IRI="urn:swrl#i1"/>
+                <Variable IRI="urn:swrl#i2"/>
+            </SameIndividualAtom>
+        </Body>
+        <Head>
+            <SameIndividualAtom>
+                <Variable IRI="urn:swrl#p1"/>
+                <Variable IRI="urn:swrl#p2"/>
+            </SameIndividualAtom>
+        </Head>
+    </DLSafeRule>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.1.0.1602) http://owlapi.sourceforge.net -->
+

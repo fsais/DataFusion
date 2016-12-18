@@ -1,0 +1,186 @@
+source: fr.dbpedia.org
+reliability 0.3
+freshness 0.2
+
+source: www.ina.fr
+reliability 0.7
+freshness 0.4
+
+
+
+
+source: www.okkam.org
+reliability 0.5
+freshness 0.5
+
+
+CONSTRUCT {
+	?set ?prop ?val 
+} 
+
+WHERE {	
+	select ?set ?prop ?val ?score {
+    ?set ?prop ?val .
+    ?val p:hasQualityScore ?score
+    { select (max(?score_) as ?score) {
+        ?val p:hasQualityScore ?score_
+      }
+	  group by ?prop
+	}
+	}
+}
+///////////////
+
+PREFIX p:    <http://localhost/rdf/>
+
+CONSTRUCT {
+	p:root p:hasSameAsSet ?saSet .
+	?saSet ?prop ?v .
+	?v p:hasQualityScore ?score
+} 
+
+WHERE {	
+	select ?saSet ?prop ?v ?score {
+		?saSet ?prop ?v .
+    	?v p:hasQualityScore ?score
+    	{ select ?prop (max(?score_) as ?score) {
+          ?v ?p ?score_
+      	  }
+      	  group by ?prop
+    	}
+    }
+}
+
+
+///
+
+
+prefix p: <http://localhost/rdf/>
+
+p:set p:hasTitle p:val1 .
+p:set p:hasTitle p:val2 .
+p:set p:hasAuthor p:val3 .
+p:set p:hasAuthor p:val4 .
+
+p:val1 p:hasValue "Harry Peter" .
+p:val1 p:hasScore 0.30 .
+
+p:val2 p:hasValue "Harry Potter" .
+p:val2 p:hasScore 0.90 .
+
+p:val3 p:hasValue "J. K. Rowling".
+p:val3 p:hasScore 0.90 .
+
+p:val4 p:hasValue "Joanne Rowling" .
+p:val4 p:hasScore 0.50 .
+
+
+
+
+prefix p: <http://localhost/rdf/>
+
+p:set p:hasTitle p:val2 .
+p:set p:hasAuthor p:val3 .
+
+p:val2 p:hasValue "Harry Potter" .
+p:val2 p:hasScore 0.90 .
+
+p:val3 p:hasValue "J. K. Rowling" .
+p:val3 p:hasScore 0.90 .
+
+
+p:saSets p:hasSameAsSet ?saSet .
+	?saSet ?prop ?val .
+    ?val p:hasQualityScore ?score
+
+
+source: fr.dbpedia.org
+reliability 0.5
+freshness 0.4
+
+source: www.ina.fr
+reliability 0.2
+freshness 0.7
+
+
+
+
+CONSTRUCT   { ?root ?p ?saSet .
+			  ?saSet ?prop ?val .
+			  ?val ?quality ?leaf }
+			  
+WHERE       { ?val path:hasQualityValue "excellent" }
+
+
+
+
+
+
+
+SELECT ?workflow (AVG(?rating_score) AS ?avg_rating) (MAX(?rating_score) AS ?max_rating) 
+  (MIN(?rating_score) AS ?min_rating)
+WHERE {
+  ?workflow rdf:type mecontrib:Workflow .
+  ?rating rdf:type meannot:Rating ;
+    mebase:annotates ?workflow ;
+    meannot:rating-score ?rating_score
+}
+GROUP BY ?workflow
+
+
+
+
+
+FILTER ( ?score >= 0.5 ) 
+
+
+Describe ...
+
+
+
+?saSet ?prop ?val2 .
+			?val2 path:hasQualityScore ?score2 .
+			  FILTER ( ?score >= ?score2)
+			  
+			  
+			  
+			  GROUP BY ?saSet		
+			  
+			  
+			  
+			  
+			  
+			  
+PREFIX path:    <http://localhost/rdf/>
+
+CONSTRUCT   { path:saSets path:hasSameAsSet ?saSet .
+			  ?saSet ?prop ?val
+		    }
+			  
+WHERE       { path:saSets path:hasSameAsSet ?saSet .
+		      ?saSet ?prop ?val .
+		      ?val path:hasQualityScore ?score 
+		    }
+		    
+  
+ORDER BY DESC (?score) LIMIT 10
+
+
+
+
+
+
+
+
+
+PREFIX p:    <http://localhost/rdf/>
+
+CONSTRUCT   { p:saSets p:hasSameAsSet ?saSet .
+			  ?saSet ?prop ?val .
+		    }
+			  
+WHERE       { p:saSets p:hasSameAsSet ?saSet .
+			  ?saSet ?prop ?uri .
+			  ?uri p:isImplausible "false" .
+			  ?uri ?hasValue ?val
+		    }

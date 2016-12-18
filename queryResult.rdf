@@ -1,0 +1,31 @@
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:p="http://localhost/rdf/" > 
+  <rdf:Description rdf:about="http://localhost/rdf/val861">
+    <p:hasValue>felidia</p:hasValue>
+    <p:isFrom>restaurant2-Restaurant33</p:isFrom>
+    <p:isImplausible>false</p:isImplausible>
+    <p:hasOccurenceFrequency>1.0</p:hasOccurenceFrequency>
+    <p:hasHomogeneity>1.0</p:hasHomogeneity>
+    <p:hasReliability>0.5</p:hasReliability>
+    <p:hasFreshness>0.5</p:hasFreshness>
+    <p:hasQualityScore>0.75</p:hasQualityScore>
+    <p:hasQualityValue>excellent</p:hasQualityValue>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/rdf/saSet96">
+    <p:name rdf:resource="http://localhost/rdf/val861"/>
+    <p:name rdf:resource="http://localhost/rdf/val856"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://localhost/rdf/val856">
+    <p:hasOccurenceFrequency>1.0</p:hasOccurenceFrequency>
+    <p:hasQualityValue>excellent</p:hasQualityValue>
+    <p:hasReliability>0.5</p:hasReliability>
+    <p:isImplausible>false</p:isImplausible>
+    <p:hasQualityScore>0.75</p:hasQualityScore>
+    <p:hasMaximumScore>true</p:hasMaximumScore>
+    <p:hasValue>felidia</p:hasValue>
+    <p:hasFreshness>0.5</p:hasFreshness>
+    <p:isFrom>restaurant1-Restaurant33</p:isFrom>
+    <p:hasHomogeneity>1.0</p:hasHomogeneity>
+  </rdf:Description>
+</rdf:RDF>

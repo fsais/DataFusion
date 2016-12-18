@@ -1,0 +1,100 @@
+StringBuilder sb = new StringBuilder();
+
+ //rules to discover persons with similar names
+ 
+
+sb.append("[dbpedianamesim1: (?x1 <http://xmlns.com/foaf/0.1/name> ?name1) , (?x2 <http://www.w3.org/2004/02/skos/core#altLabel> ?name2) ,Similar(?name1,?name2,0.99) -> (?x1 <http://www.ina.fr/core#same_name> ?x2)]");
+sb.append("[dbpedianamesim2: (?x1 <http://xmlns.com/foaf/0.1/name> ?name1) , (?x2 <http://www.w3.org/2004/02/skos/core#prefLabel> ?name2) ,Similar(?name1,?name2,0.99) -> (?x1 <http://www.ina.fr/core#same_name> ?x2)]");
+
+sb.append("[dbpedianamesim3: (?x1 <http://www.w3.org/2000/01/rdf-schema#label> ?name1) , (?x2 <http://www.w3.org/2004/02/skos/core#altLabel> ?name2) ,Similar(?name1,?name2,0.99) -> (?x1 <http://www.ina.fr/core#same_name> ?x2)]");
+sb.append("[dbpedianamesim4: (?x1 <http://www.w3.org/2000/01/rdf-schema#label> ?name1) , (?x2 <http://www.w3.org/2004/02/skos/core#prefLabel> ?name2) ,Similar(?name1,?name2,0.99) -> (?x1 <http://www.ina.fr/core#same_name> ?x2)]");
+
+sb.append("[dbpedianamesim5: (?x1 <http://fr.dbpedia.org/property/nom> ?name1) , (?x2 <http://www.w3.org/2004/02/skos/core#altLabel> ?name2) ,Similar(?name1,?name2,0.99) -> (?x1 <http://www.ina.fr/core#same_name> ?x2)]");
+sb.append("[dbpedianamesim6: (?x1 <http://fr.dbpedia.org/property/nom> ?name1) , (?x2 <http://www.w3.org/2004/02/skos/core#prefLabel> ?name2) ,Similar(?name1,?name2,0.99) -> (?x1 <http://www.ina.fr/core#same_name> ?x2)]");
+
+sb.append("[inaexactname1: (?x1 <http://www.w3.org/2004/02/skos/core#altLabel> ?name1) , (?x2 <http://www.w3.org/2004/02/skos/core#altLabel> ?name1),notEqual(?x1,?x2)  -> (?x1 <http://www.ina.fr/core#exact_same_name> ?x2)]");
+sb.append("[inaexactname2: (?x1 <http://www.w3.org/2004/02/skos/core#prefLabel> ?name1) , (?x2 <http://www.w3.org/2004/02/skos/core#prefLabel> ?name1),notEqual(?x1,?x2)  -> (?x1 <http://www.ina.fr/core#exact_same_name> ?x2)]");
+ sb.append("[inaexactname3:  (?x1 <http://www.ina.fr/core#exact_same_name> ?x2)" +" -> (?x2 <http://www.ina.fr/core#exact_same_name> ?x1)] ");
+//*****************************************************************************************************************************************
+
+
+
+//rules to extract the years from birthdate and deathdate. (complete birthdate are not available in ina)
+sb.append("[birthyeardbpedia1: (?x1 <http://dbpedia.org/ontology/birthDate> ?d) , Year(?d,?y) -> (?x1 <http://dbpedia.org/ontology/mustafa/birthYear> ?y)]");
+sb.append("[deathyeardbpedia: (?x1 <http://dbpedia.org/ontology/deathDate> ?d) , Year(?d,?y) -> (?x1 <http://dbpedia.org/ontology/mustafa/deathYear> ?y)]");
+
+sb.append("[birthyeardbpedia2: (?x1 <http://fr.dbpedia.org/property/dateDeNaissance> ?d) , Year(?d,?y) -> (?x1 <http://www.ina.fr/core#birthYear> ?y)]");
+sb.append("[deathyeardbpedia: (?x1 <http://fr.dbpedia.org/property/dateDeDécès> ?d) , Year(?d,?y) -> (?x1 <http://dbpedia.org/ontology/mustafa/deathYear> ?y)]");
+
+sb.append("[deathyearina: (?x1 <http://www.ina.fr/core#birthDate> ?d) , Year(?d,?y) -> (?x1 <http://www.ina.fr/core#birthYear> ?y)]");
+sb.append("[deathyeardina: (?x1 <http://www.ina.fr/core#deathDate> ?d) , Year(?d,?y) -> (?x1 <http://www.ina.fr/core#deathYear> ?y)]");
+
+//*****************************************************************************************************************************************
+
+//key(name,birthYear,deathYear) notice the key(name,birthYear) only is not certain (case Jacques Martin)
+sb.append("[sameASina1:  (?x1 <http://www.ina.fr/core#exact_same_name> ?x2)" +
+", (?x1 <http://www.ina.fr/core#birthYear> ?date1) , (?x2 <http://www.ina.fr/core#birthYear> ?date1)" +
+",(?x1 <http://www.ina.fr/core#deathYear> ?date2) , (?x2 <http://www.ina.fr/core#deathYear> ?date2)" +
+" -> (?x1 <http://www.ina.fr/core/mustafa#sameAs> ?x2)] ");
+ 
+//functional property birthYear
+sb.append("[differentFromina1:  (?x1 <http://www.ina.fr/core#exact_same_name> ?x2)" +
+", (?x1 <http://www.ina.fr/core#birthYear> ?date1) , (?x2 <http://www.ina.fr/core#birthYear> ?date2), notEqual(?date1,?date2)" +
+" -> (?x1 <http://www.ina.fr/core/mustafa#differentFrom> ?x2)] ");
+
+//functional property birthYear
+sb.append("[differentFromina2:  (?x1 <http://www.ina.fr/core#exact_same_name> ?x2)" +
+", (?x1 <http://www.ina.fr/core#deathYear> ?date1) , (?x2 <http://www.ina.fr/core#deathYear> ?date2), notEqual(?date1,?date2)" +
+" -> (?x1 <http://www.ina.fr/core/mustafa#differentFrom> ?x2)] ");
+
+//key(name,birthYear,deathYear) between ina and dbpedia 
+sb.append("[sameASinadbpedia1:  (?x2 <http://www.ina.fr/core#same_name> ?x1)" +
+", (?x1 <http://dbpedia.org/ontology/mustafa/birthYear> ?date1) , (?x2 <http://www.ina.fr/core#birthYear> ?date1)" +
+", (?x1 <http://dbpedia.org/ontology/mustafa/deathYear> ?date2) , (?x2 <http://www.ina.fr/core#deathYear> ?date2)" +
+" -> (?x1 <http://www.ina.fr/core/mustafa#sameAs> ?x2)] ");
+ 
+//functional property birthYear between ina and dbpedia  
+sb.append("[differentFrominadbpedia1:  (?x2 <http://www.ina.fr/core#same_name> ?x1)" +
+", (?x1 <http://dbpedia.org/ontology/mustafa/birthYear> ?date1) , (?x2 <http://www.ina.fr/core#birthYear> ?date2), notEqual(?date1,?date2)" +
+" -> (?x1 <http://www.ina.fr/core/mustafa#differentFrom> ?x2)] ");
+ 
+//functional property birthYear between ina and dbpedia 
+sb.append("[differentFrominadbpedia2:  (?x2 <http://www.ina.fr/core#same_name> ?x1)" +
+", (?x1 <http://dbpedia.org/ontology/mustafa/deathYear> ?date1) , (?x2 <http://www.ina.fr/core#deathYear> ?date2), notEqual(?date1,?date2)" +
+" -> (?x1 <http://www.ina.fr/core/mustafa#differentFrom> ?x2)] ");
+
+ //***************************************************************************************************************************************** 
+  // sameAs2 is used to be able to produce only sameAs facts useful for ina
+  
+sb.append("[sameASSymm2: (?x1 <http://www.ina.fr/core/mustafa#sameAs2> ?x2) -> (?x2 <http://www.ina.fr/core/mustafa#sameAs2> ?x1)]");
+sb.append("[sameASSymm: (?x1 <http://www.ina.fr/core/mustafa#sameAs> ?x2) -> (?x2 <http://www.ina.fr/core/mustafa#sameAs> ?x1)]");
+sb.append("[differentFromSym: (?x1 <http://www.ina.fr/core/mustafa#differentFrom> ?x2) -> (?x2 <http://www.ina.fr/core/mustafa#differentFrom> ?x1)]");
+sb.append("[sameASTrans: (?x1 <http://www.ina.fr/core/mustafa#sameAs2> ?x2) , (?x2 <http://www.ina.fr/core/mustafa#sameAs> ?x3) -> (?x1 <http://www.ina.fr/core/mustafa#sameAs> ?x3)]");
+sb.append("[differentFromsameASTrans: (?x1 <http://www.ina.fr/core/mustafa#sameAs2> ?x2) , (?x2 <http://www.ina.fr/core/mustafa#differentFrom> ?x3) -> (?x1 <http://www.ina.fr/core/mustafa#differentFrom> ?x3)]");
+
+
+// use these two rules if you want the full set of sameAs facts
+//sb.append("[sameASTrancs: (?x1 <http://www.ina.fr/core/mustafa#sameAs> ?x2) , (?x2 <http://www.ina.fr/core/mustafa#sameAs> ?x3),notEqual(?x1,?x3) -> (?x1 <http://www.ina.fr/core/mustafa#sameAs> ?x3)]");
+//sb.append("[sameASTrancs: (?x1 <http://www.ina.fr/core/mustafa#sameAs> ?x2) , (?x2 <http://www.ina.fr/core/mustafa#differentFrom> ?x3) -> (?x1 <http://www.ina.fr/core/mustafa#differentFrom> ?x3)]");
+
+ //***************************************************************************************************************************************** 
+ 
+ sb.append("[wikiPagelinks: (?x1 <http://www.ina.fr/core#same_name> ?x2), (?x1 <http://www.ina.fr/core/mustafa#Presenter_of> ?title), "
+                + "(?x2 <http://dbpedia.org/ontology/wikiPageWikiLink> ?link), (?link <http://www.w3.org/2000/01/rdf-schema/mustafa#label> ?label),"
+                + " Similar(?title ,?label ,0.9)"
+                + "-> (?x1 <http://www.ina.fr/core/mustafa#sameAs2> ?x2)]  ");
+         
+
+ 
+ 
+ //This rules is not certain so it is commented now
+/*
+sb.append("[occupation2: (?x1 <http://www.ina.fr/core#same_name> ?x2), (?x2 <http://dbpedia.org/ontology/occupation> ?occ1), " +
+		"(?occ1 <http://www.w3.org/2000/01/rdf-schema/mustafa#label> ?label1) ," +
+		" (?x1 <http://www.ina.fr/core#hasOccupation>  ?occ2)," +
+		" (?occ2 <http://www.w3.org/2000/01/rdf-schema#label> ?label2), Similar(?label1 ,?label2 ,0.6)" +
+		" -> (?x1 <http://www.ina.fr/core/mustafa#sameAs> ?x2)  ]");
+  */     
+       
+
+

@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='utf-8' standalone='no'?>
+<rdf:RDF xmlns='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'
+         xmlns:rdf='http://www.w3.org/1999/02/22-rdf-syntax-ns#'
+         xmlns:xsd='http://www.w3.org/2001/XMLSchema#'
+         xmlns:align='http://knowledgeweb.semanticweb.org/heterogeneity/alignment#'
+         xmlns:edoal='http://ns.inria.org/edoal/1.0/'>
+<align:Alignment>
+  <align:xml>yes</align:xml>
+  <align:level>2EDOAL</align:level>
+  <align:type>**</align:type>
+  <align:method>fr.inrialpes.exmo.align.impl.method.StringDistAlignment</align:method>
+  <align:time>7</align:time>
+  <align:onto1>
+    <align:Ontology rdf:about="http://www.okkam.org/ontology_restaurant1.owl>
+      <align:location>null</align:location>
+      <align:formalism>
+        <align:Formalism align:name="OWL1.0" align:uri="http://www.w3.org/2002/07/owl#" />
+      </align:formalism>
+    </align:Ontology>
+  </align:onto1>
+  <align:onto2>
+    <align:Ontology rdf:about="http://www.okkam.org/ontology_restaurant2.owl>
+      <align:location>null</align:location>
+      <align:formalism>
+        <align:Formalism align:name="OWL1.0" align:uri="http://www.w3.org/2002/07/owl#" />
+      </align:formalism>
+    </align:Ontology>
+  </align:onto2>
+
+ <align:map>
+   <align:Cell>
+      <align:entity1 rdf:resource='http://www.okkam.org/ontology_restaurant1.owl#phone_number'/>
+      <align:entity2 rdf:resource='http://www.okkam.org/ontology_restaurant2.owl#phone_number'/>
+      <align:relation>=</align:relation>
+      <align:measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</align:measure>
+    </align:Cell>
+ </align:map>
+ <!-- mapping : o1-dp.restaurant.name = o2-dp.restaurant.name -->
+ <align:map>
+   <align:Cell>
+   <align:entity1>
+   <Property rdf:about='http://www.okkam.org/ontology_restaurant1.owl#name'>
+     <PropertyDomainRestriction>
+        <class>
+          <Class rdf:about="http://www.okkam.org/ontology_restaurant1.owl#Restaurant"/>
+        </class>
+      </PropertyDomainRestriction>
+     </Property>
+    </align:entity1>
+   <align:entity2>
+   <Property rdf:about='http://www.okkam.org/ontology_restaurant2.owl#name'>
+     <PropertyDomainRestriction>
+        <class>
+          <Class rdf:about="http://www.okkam.org/ontology_restaurant2.owl#Restaurant"/>
+        </class>
+      </PropertyDomainRestriction>
+     </Property>
+   </align:entity2>
+    <align:relation>=</align:relation>
+   <align:measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</align:measure>
+  </align:Cell>
+ </align:map>
+ <!-- mapping : o1-dp.street = o2-op.has_hasAddress.street union o2-op.has_hasAddress.city -->
+ <align:map>
+   <align:Cell>
+   <align:entity1 rdf:resource='http://www.okkam.org/ontology_restaurant1.owl#street'/>
+   <align:entity2 rdf:resource='http://www.okkam.org/ontology_restaurant2.owl#street'/>
+   <align:relation>=</align:relation>
+   <align:measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</align:measure>
+   <edoal:transformation>
+   <Property rdf:about='http://www.okkam.org/ontology_restaurant1.owl#street'>
+         <compose rdf:parseType="Collection">
+           <Property rdf:about='http://www.okkam.org/ontology_restaurant2.owl#street'/>
+           <Property rdf:about='http://www.okkam.org/ontology_restaurant1.owl#city'/>
+         </compose>
+       </Property>
+   </edoal:transformation>
+  </align:Cell>
+ </align:map>
+
+<!-- mapping : o1-dp.category = o2-op.has_category.name -->
+ <align:map>
+   <align:Cell>
+   <align:entity1 rdf:resource='http://www.okkam.org/ontology_restaurant1.owl#category'/>
+   <align:entity2 rdf:resource='http://www.okkam.org/ontology_restaurant2.owl#has_category'/>
+   <align:relation>=</align:relation>
+   <align:measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</align:measure>
+   <edoal:transformation>
+   <Property rdf:about='http://www.okkam.org/ontology_restaurant1.owl#category'>
+         <compose rdf:parseType="Collection">
+           <Property rdf:about='http://www.okkam.org/ontology_restaurant2.owl#name>
+             <PropertyDomainRestriction>
+                <class>
+                  <Class rdf:about="http://www.okkam.org/ontology_restaurant2.owl#Category"/>
+                </class>
+              </PropertyDomainRestriction>
+             </Property>
+           </compose>
+  </Property>
+   </edoal:transformation>
+  </align:Cell>
+ </align:map>
+
+
+ <align:map>
+   <align:Cell>
+      <align:entity1 rdf:resource='http://www.okkam.org/oaie/restaurant1-Restaurant2'/>
+      <align:entity2 rdf:resource='http://www.okkam.org/oaie/restaurant2-Restaurant2'/>
+      <align:relation>=</align:relation>
+      <align:measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</align:measure>
+    </align:Cell>
+ </align:map>
+ <align:map>
+   <align:Cell>
+      <align:entity1 rdf:resource='http://www.okkam.org/oaie/restaurant1-Restaurant3'/>
+      <align:entity2 rdf:resource='http://www.okkam.org/oaie/restaurant2-Restaurant3'/>
+      <align:relation>=</align:relation>
+      <align:measure rdf:datatype='http://www.w3.org/2001/XMLSchema#float'>1.0</align:measure>
+    </align:Cell>
+ </align:map>
+</align:Alignment>
+</rdf:RDF>

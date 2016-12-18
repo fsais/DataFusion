@@ -1,0 +1,17 @@
+﻿	
+	notice:aPourFonds notice:Production ;
+	notice:aPourGenre notice:JournalTV ;
+	notice:aPourDureeSec "40"^^xsd:int ;
+	notice:aPourParent <2103064001> ;
+	notice:aPourPresentateur pp:concept_10064331 ;
+	notice:aPourResume "L'inspecteur LECLERC demande aux passants dans la rue pourquoi les fuselages des avions ne sont-ils pas fabriqués dans le même materiau que la boite noire."@fr ;
+	notice:aPourSocieteProgramme notice:FR3 ;
+	notice:aPourTheme nc:concept_10035924 ,
+			  nc:concept_10036013 ,
+			  nc:concept_10037147 ,
+			  nc:concept_10581555 ;
+	notice:aPourTitreCollection "Mon kanar"@fr ;
+	rdfs:label "Télétrottoir inspecteur Leclerc : la boite noire"@fr .;
+	notice:aPourDureeSec "41"^^xsd:int ;
+	notice:aPourDureeSec "42"^^xsd:int ;
+	notice:aPourResume "test" ;
