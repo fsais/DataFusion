@@ -1,0 +1,7 @@
+source: fr.dbpedia.org 
+reliability 0.5
+freshness 0.4
+
+source: www.ina.fr
+reliability 0.3
+freshness 0.7

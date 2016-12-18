@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <Prefix name="" IRI="file:/Users/sais/Documents/Recherche/DEV/DataFusion/PR/restaurants/ontology_restaurant2.owl"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Prefix name="owl2xml" IRI="http://www.w3.org/2006/12/owl2-xml#"/>
+    <Prefix name="ontology_restaurant2" IRI="http://www.okkam.org/ontology_restaurant2.owl#"/>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="ontology_restaurant2:has_category"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="ontology_restaurant2:has_address"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="ontology_restaurant2:Category"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="ontology_restaurant2:city"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="ontology_restaurant2:Organization"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="ontology_restaurant2:Address"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="ontology_restaurant2:Location"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="ontology_restaurant2:City"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="ontology_restaurant2:name"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="ontology_restaurant2:street"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="ontology_restaurant2:Restaurant"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="ontology_restaurant2:phone_number"/>
+    </Declaration>
+    <SubClassOf>
+        <Class abbreviatedIRI="ontology_restaurant2:Address"/>
+        <Class abbreviatedIRI="ontology_restaurant2:Location"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="ontology_restaurant2:City"/>
+        <Class abbreviatedIRI="ontology_restaurant2:Location"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="ontology_restaurant2:Location"/>
+        <Class IRI="Thing"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="ontology_restaurant2:Restaurant"/>
+        <Class abbreviatedIRI="ontology_restaurant2:Organization"/>
+    </SubClassOf>
+    <AsymmetricObjectProperty>
+        <ObjectProperty abbreviatedIRI="ontology_restaurant2:has_address"/>
+    </AsymmetricObjectProperty>
+    <IrreflexiveObjectProperty>
+        <ObjectProperty abbreviatedIRI="ontology_restaurant2:has_address"/>
+    </IrreflexiveObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="ontology_restaurant2:has_address"/>
+        <Class abbreviatedIRI="ontology_restaurant2:Restaurant"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="ontology_restaurant2:has_category"/>
+        <Class abbreviatedIRI="ontology_restaurant2:Restaurant"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="ontology_restaurant2:has_address"/>
+        <Class abbreviatedIRI="ontology_restaurant2:Address"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="ontology_restaurant2:has_category"/>
+        <Class abbreviatedIRI="ontology_restaurant2:Category"/>
+    </ObjectPropertyRange>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="ontology_restaurant2:city"/>
+        <Class abbreviatedIRI="ontology_restaurant2:Address"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="ontology_restaurant2:name"/>
+        <ObjectIntersectionOf>
+            <Class abbreviatedIRI="ontology_restaurant2:Category"/>
+            <Class abbreviatedIRI="ontology_restaurant2:City"/>
+            <Class abbreviatedIRI="ontology_restaurant2:Restaurant"/>
+        </ObjectIntersectionOf>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="ontology_restaurant2:phone_number"/>
+        <Class abbreviatedIRI="ontology_restaurant2:Restaurant"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="ontology_restaurant2:street"/>
+        <Class abbreviatedIRI="ontology_restaurant2:Address"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="ontology_restaurant2:city"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="ontology_restaurant2:name"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="ontology_restaurant2:phone_number"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="ontology_restaurant2:street"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>ontology_restaurant2:City</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The class of cities</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>ontology_restaurant2:Location</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The class of geographical locations</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>ontology_restaurant2:Organization</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The class of organizations</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>ontology_restaurant2:Restaurant</AbbreviatedIRI>
+        <Literal datatypeIRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#PlainLiteral">The class of restaurant</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.2.5.20160517-0735) https://github.com/owlcs/owlapi -->
+

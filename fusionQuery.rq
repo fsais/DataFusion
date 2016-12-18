@@ -1,0 +1,20 @@
+PREFIX p:    <http://localhost/rdf/>
+
+CONSTRUCT {
+	p:root p:hasSameAsSet ?saSet .
+	?saSet ?prop ?val .
+	?val ?p ?v 
+} 
+
+WHERE {
+	select ?saSets ?saSet ?prop ?val ?p ?v {	
+	?saSets p:hasSameAsSet ?saSet .
+	?saSet ?prop ?val . 
+	?val ?p ?v .
+	{ select ?val
+	{
+		?val p:hasMaximumScore ?v
+	}
+	}
+	}
+}

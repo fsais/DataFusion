@@ -1,0 +1,9 @@
+distinct persons:
+Jacques Martin 10288
+philippe bouvard 264
+daniel prevost 214
+frederic martin 26
+emmanuel petit 12
+luis fernandez 7
+michel leclerc 6
+virginie lemoine 2
